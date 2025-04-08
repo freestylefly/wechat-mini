@@ -1,0 +1,62 @@
+/* 结果页面样式 */
+.container {
+  height: 100vh;
+  padding: 0;
+}
+
+.chinese-bg {
+  display: flex;
+  flex-direction: column;
+  padding: 40rpx;
+}
+
+.result-title {
+  font-size: 44rpx;
+  font-weight: bold;
+  color: #333;
+  margin: 40rpx 0;
+  text-shadow: 0 0 10rpx rgba(255, 255, 255, 0.8);
+}
+
+.result-content {
+  padding: 40rpx;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 20rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+  margin-bottom: 40rpx;
+}
+
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 30rpx 0;
+  border-bottom: 1rpx solid rgba(240, 240, 240, 0.7);
+}
+
+.result-item:last-child {
+  border-bottom: none;
+}
+
+.result-label {
+  font-size: 32rpx;
+  color: #666;
+  flex: 0 0 auto; /* 标签固定宽度 */
+}
+
+.result-value {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: 500;
+  flex: 1;
+  text-align: right;
+  padding-right: 30rpx; /* 添加右侧边距 */
+  word-break: break-all; /* 防止文字溢出 */
+}
+
+.result-note {
+  text-align: center;
+  font-size: 28rpx;
+  color: #333;
+  margin: 20rpx 0 60rpx;
+  text-shadow: 0 0 10rpx rgba(255, 255, 255, 0.8);
+} 

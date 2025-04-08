@@ -1,0 +1,132 @@
+/* 输入页面样式 */
+.container {
+  height: 100vh;
+  padding: 0;
+}
+
+.chinese-bg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-form {
+  padding: 60rpx 40rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input-title {
+  font-size: 42rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 60rpx;
+  text-align: center;
+  text-shadow: 0 0 10rpx rgba(255, 255, 255, 0.8);
+}
+
+.input-item {
+  margin-bottom: 60rpx;
+}
+
+.input-label {
+  font-size: 32rpx;
+  color: #333;
+  margin-bottom: 20rpx;
+  font-weight: 500;
+  text-shadow: 0 0 10rpx rgba(255, 255, 255, 0.8);
+}
+
+.input-field {
+  width: 100%;
+  height: 88rpx;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 16rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx;
+  color: #333;
+  font-size: 32rpx;
+  box-shadow: inset 0 2rpx 6rpx rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+
+.input-placeholder {
+  color: #999;
+}
+
+.input-selector {
+  color: #999;
+}
+
+.icon-right:after {
+  content: '';
+  display: inline-block;
+  width: 16rpx;
+  height: 16rpx;
+  border-top: 2rpx solid #999;
+  border-right: 2rpx solid #999;
+  transform: rotate(45deg);
+}
+
+/* 选择器弹窗 */
+.picker-mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: flex;
+  align-items: flex-end;
+}
+
+.picker-container {
+  width: 100%;
+  background-color: #fff;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+  overflow: hidden;
+}
+
+.picker-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.picker-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.picker-cancel, .picker-confirm {
+  font-size: 28rpx;
+  padding: 10rpx 20rpx;
+  border-radius: 10rpx;
+}
+
+.picker-cancel {
+  color: #666;
+}
+
+.picker-confirm {
+  color: #3CB371;
+  font-weight: bold;
+}
+
+.date-picker-view, .time-picker-view {
+  width: 100%;
+  height: 400rpx;
+}
+
+.picker-item {
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 32rpx;
+} 

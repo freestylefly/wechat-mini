@@ -1,0 +1,7 @@
+{
+  "desc": "八字命理小助手",
+  "rules": [{
+    "action": "allow",
+    "page": "*"
+  }]
+} 

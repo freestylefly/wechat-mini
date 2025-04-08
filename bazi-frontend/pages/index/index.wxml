@@ -1,0 +1,15 @@
+<!-- 首页 -->
+<view class="container">
+  <view class="chinese-bg">
+    <image class="bg-image" src="../../static/images/background.jpg" mode="aspectFill"></image>
+    
+    <!-- 首页内容 -->
+    <view class="home-content">
+      <view class="home-title">阳历-农历</view>
+      <view class="home-subtitle">天干、地支，一键计算。</view>
+      
+      <!-- 开始按钮 -->
+      <view class="action-btn" bindtap="onStartCalculate">开始计算</view>
+    </view>
+  </view>
+</view> 

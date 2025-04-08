@@ -1,0 +1,72 @@
+<!-- 信息输入页 -->
+<view class="container">
+  <view class="chinese-bg">
+    <image class="bg-image" src="../../static/images/background.jpg" mode="aspectFill"></image>
+    
+    <!-- 输入表单 -->
+    <view class="input-form">
+      <view class="input-title">请填写出生信息</view>
+      
+      <view class="input-item">
+        <view class="input-label">出生日期（阳历）</view>
+        <view class="input-field" bindtap="onShowDatePicker">
+          <text class="{{date ? '' : 'input-placeholder'}}">{{date || '点击选择日期'}}</text>
+          <view class="input-selector">
+            <text class="icon-right"></text>
+          </view>
+        </view>
+      </view>
+      
+      <view class="input-item">
+        <view class="input-label">出生时辰</view>
+        <view class="input-field" bindtap="onShowTimePicker">
+          <text class="{{timeText ? '' : 'input-placeholder'}}">{{timeText || '点击选择时辰'}}</text>
+          <view class="input-selector">
+            <text class="icon-right"></text>
+          </view>
+        </view>
+      </view>
+      
+      <!-- 计算按钮 -->
+      <view class="action-btn {{canCalculate ? '' : 'disabled'}}" bindtap="onCalculate">计算</view>
+    </view>
+  </view>
+</view>
+
+<!-- 日期选择器弹窗 -->
+<view class="picker-mask" wx:if="{{showDatePicker}}" bindtap="onCancelDatePicker">
+  <view class="picker-container" catchtap="preventBubble">
+    <view class="picker-header">
+      <view class="picker-cancel" bindtap="onCancelDatePicker">取消</view>
+      <view class="picker-title">选择出生日期</view>
+      <view class="picker-confirm" bindtap="onConfirmDatePicker">确定</view>
+    </view>
+    <picker-view class="date-picker-view" value="{{datePickerValue}}" bindchange="onDatePickerChange">
+      <picker-view-column>
+        <view wx:for="{{years}}" wx:key="index" class="picker-item">{{item}}年</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{months}}" wx:key="index" class="picker-item">{{item}}月</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{days}}" wx:key="index" class="picker-item">{{item}}日</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+</view>
+
+<!-- 时辰选择器弹窗 -->
+<view class="picker-mask" wx:if="{{showTimePicker}}" bindtap="onCancelTimePicker">
+  <view class="picker-container" catchtap="preventBubble">
+    <view class="picker-header">
+      <view class="picker-cancel" bindtap="onCancelTimePicker">取消</view>
+      <view class="picker-title">选择出生时辰</view>
+      <view class="picker-confirm" bindtap="onConfirmTimePicker">确定</view>
+    </view>
+    <picker-view class="time-picker-view" value="{{timePickerValue}}" bindchange="onTimePickerChange">
+      <picker-view-column>
+        <view wx:for="{{timeOptions}}" wx:key="index" class="picker-item">{{item.text}}</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+</view> 
