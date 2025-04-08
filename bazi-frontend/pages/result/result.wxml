@@ -35,7 +35,7 @@
     </view>
     
     <!-- 备注 -->
-    <view class="result-note">备注：天干地支即生辰八字（仅供娱乐参考）</view>
+    <view class="result-note">备注：天干地支是传统历法的时间表示方式（仅供娱乐参考）</view>
     
     <!-- 再来一次按钮 -->
     <view class="action-btn" bindtap="onCalculateAgain">再来一次</view>

@@ -1,6 +1,6 @@
 # 子域名设置指南
 
-本指南将帮助你设置子域名 `bazi.canghecode.com` 用于八字命理小程序的API访问。
+本指南将帮助你设置子域名 `bazi.canghecode.com` 用于生辰分析小程序的API访问。
 
 ## 步骤1: 添加DNS记录
 

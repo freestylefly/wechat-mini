@@ -349,7 +349,7 @@ public class VolcengineServiceImpl implements DeepSeekService {
      */
     private String formatPrompt(CalculationRequest request) {
         StringBuilder sb = new StringBuilder();
-        sb.append("请根据以下信息计算八字命盘：\n");
+        sb.append("请根据以下信息分析生辰信息：\n");
         sb.append("公历日期：").append(request.getDate()).append("\n");
         
         if (StringUtils.hasText(request.getTime())) {

@@ -7,7 +7,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#3CB371",
-    "navigationBarTitleText": "八字命理小助手",
+    "navigationBarTitleText": "生辰分析助手",
     "navigationBarTextStyle": "white"
   },
   "style": "v2",

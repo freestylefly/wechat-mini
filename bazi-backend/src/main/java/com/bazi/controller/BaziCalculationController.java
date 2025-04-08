@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 /**
- * 八字计算控制器
+ * 生辰数据计算控制器
  * 
  * @author bazi-team
  */
@@ -27,7 +27,7 @@ import javax.validation.Valid;
 @Validated
 @RestController
 @RequestMapping("/bazi")
-@Tag(name = "八字计算接口", description = "提供八字命理计算相关接口")
+@Tag(name = "生辰数据分析接口", description = "提供生辰信息计算相关接口")
 public class BaziCalculationController {
     
     private final DeepSeekService deepSeekService;
@@ -51,17 +51,17 @@ public class BaziCalculationController {
     }
     
     /**
-     * 八字计算接口
+     * 生辰数据计算接口
      * 
      * @param request 计算请求参数
-     * @return 八字计算结果
+     * @return 生辰数据计算结果
      */
     @PostMapping("/calculate")
-    @Operation(summary = "八字计算", description = "根据阳历日期和时辰计算八字信息")
+    @Operation(summary = "生辰分析", description = "根据阳历日期和时辰计算生辰信息")
     public ApiResponse<BaziCalculationResult> calculateBazi(
             @Parameter(description = "计算请求参数") @Valid @RequestBody CalculationRequest request) {
         
-        log.info("收到八字计算请求: {}", request);
+        log.info("收到生辰分析请求: {}", request);
         
         // 调用DeepSeek API进行计算
         DeepSeekResponse apiResponse = deepSeekService.requestCalculation(request);
@@ -69,7 +69,7 @@ public class BaziCalculationController {
         // 解析响应结果
         BaziCalculationResult result = responseParser.parseResult(apiResponse);
         
-        log.info("八字计算完成: {}", result);
+        log.info("生辰分析完成: {}", result);
         
         return ApiResponse.success(result);
     }
