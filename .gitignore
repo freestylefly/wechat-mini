@@ -25,3 +25,5 @@ yarn-error.log*
 .cache/
 coverage/
 .nyc_output/ 
+# Private individual user cursor rules
+.cursor/rules/_*.mdc
