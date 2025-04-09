@@ -24,7 +24,7 @@ logging:
 deepseek:
   api:
     url: ${DEEPSEEK_API_URL:https://api.deepseek.com/v1/chat/completions}
-    key: ${DEEPSEEK_API_KEY:sk-69fdd397a6a24780a9fd9d1708e6b0c0}
+    key: ${DEEPSEEK_API_KEY:YOUR_DEEPSEEK_API_KEY}
 
 # Swagger配置
 springdoc:
@@ -49,7 +49,7 @@ ai:
 # 火山引擎API配置
 volcengine:
   api:
-    key: ${VOLCENGINE_API_KEY:e52c3178-232f-431c-a651-97e4737e8676}  # 使用示例中的API Key或环境变量
+    key: ${VOLCENGINE_API_KEY:YOUR_VOLCENGINE_API_KEY}
     timeout: 30
     model: doubao-lite-128k-240828
     max-connections: 5

@@ -1,13 +1,13 @@
 # 子域名设置指南
 
-本指南将帮助你设置子域名 `bazi.canghecode.com` 用于生辰分析小程序的API访问。
+本指南将帮助你设置子域名 `api.your-domain.com` 用于生辰分析小程序的API访问。
 
 ## 步骤1: 添加DNS记录
 
 1. 登录你的域名注册商或DNS管理面板
-2. 为 `canghecode.com` 添加一条子域名记录:
+2. 为 `your-domain.com` 添加一条子域名记录:
    - 类型: `A` 记录
-   - 主机名: `bazi`
+   - 主机名: `api`
    - 值: 你服务器的IP地址
    - TTL: 可设置为300或3600 (秒)
 
@@ -16,15 +16,15 @@
 1. 在服务器上设置子域名配置:
    ```bash
    # 创建配置文件
-   sudo nano /etc/nginx/conf.d/bazi.canghecode.com.conf
+   sudo nano /etc/nginx/conf.d/api.your-domain.com.conf
    ```
 
 2. 将提供的 `bazi-subdomain-nginx.conf` 内容复制到此文件
    
 3. 调整配置中的SSL证书路径:
    ```
-   ssl_certificate /etc/nginx/cert/canghecode.com.pem;
-   ssl_certificate_key /etc/nginx/cert/canghecode.com.key;
+   ssl_certificate /etc/nginx/cert/your-domain.com.pem;
+   ssl_certificate_key /etc/nginx/cert/your-domain.com.key;
    ```
    确保路径指向正确的证书文件。
 
@@ -43,7 +43,7 @@
 ## 步骤4: 更新微信小程序配置
 
 1. 在微信公众平台的开发管理中，将请求合法域名更新为:
-   - `bazi.canghecode.com`
+   - `api.your-domain.com`
 
 2. 注意域名必须有备案，并且使用HTTPS协议
 
@@ -52,7 +52,7 @@
 测试子域名是否正常工作:
 
 ```bash
-curl -v https://bazi.canghecode.com/api/bazi/calculate
+curl -v https://api.your-domain.com/api/bazi/calculate
 ```
 
 ## 故障排查
@@ -61,7 +61,7 @@ curl -v https://bazi.canghecode.com/api/bazi/calculate
 
 1. **DNS解析**: 使用以下命令检查DNS是否已解析:
    ```bash
-   nslookup bazi.canghecode.com
+   nslookup api.your-domain.com
    ```
 
 2. **Nginx日志**:
@@ -78,6 +78,6 @@ curl -v https://bazi.canghecode.com/api/bazi/calculate
 4. **证书问题**:
    如果证书配置有误，可以使用:
    ```bash
-   sudo certbot --nginx -d bazi.canghecode.com
+   sudo certbot --nginx -d api.your-domain.com
    ```
    为子域名单独申请一个Let's Encrypt证书。 

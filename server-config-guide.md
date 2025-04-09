@@ -19,7 +19,7 @@ java.lang.IllegalArgumentException: Invalid character found in method name [0x16
 ```javascript
 // config/api.js
 const BASE_URLS = {
-  [ENV.PROD]: 'http://canghecode.com:6803/api'
+  [ENV.PROD]: 'http://your-domain.com:YOUR_API_PORT/api'
 };
 ```
 
@@ -33,7 +33,7 @@ const BASE_URLS = {
 # 主域名HTTPS配置
 server {
     listen 443 ssl;
-    server_name canghecode.com;
+    server_name your-domain.com;
 
     ssl_certificate     /path/to/cert.pem;
     ssl_certificate_key /path/to/key.pem;
@@ -85,8 +85,8 @@ server:
 sudo ufw allow 80
 sudo ufw allow 443
 
-# 如果需要独立端口(6803)也暴露
-sudo ufw allow 6803
+# 如果需要独立端口也暴露
+sudo ufw allow YOUR_API_PORT
 ```
 
 ## 最佳实践建议

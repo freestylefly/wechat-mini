@@ -13,7 +13,7 @@
    sudo apt-get install certbot python3-certbot-nginx
    
    # 生成证书
-   sudo certbot --nginx -d canghecode.com
+   sudo certbot --nginx -d your-domain.com
    ```
 
 2. 或者从SSL证书提供商购买证书。
@@ -45,8 +45,8 @@
 
 1. SSL证书路径:
    ```
-   ssl_certificate /etc/nginx/cert/canghecode.com.pem;
-   ssl_certificate_key /etc/nginx/cert/canghecode.com.key;
+   ssl_certificate /etc/nginx/cert/your-domain.com.pem;
+   ssl_certificate_key /etc/nginx/cert/your-domain.com.key;
    ```
 
 2. 网站根目录:
@@ -82,7 +82,7 @@ server:
 sudo ufw status
 sudo ufw allow 80
 sudo ufw allow 443
-sudo ufw allow 6803
+sudo ufw allow YOUR_API_PORT  # 替换为你的API端口
 ```
 
 ## 步骤5: 重启服务
@@ -108,7 +108,7 @@ cd /path/to/your/app && java -jar bazi-backend.jar
 测试HTTPS是否正常工作：
 
 ```bash
-curl -v https://canghecode.com:6803/api/bazi/calculate
+curl -v https://your-domain.com:YOUR_API_PORT/api/bazi/calculate
 ```
 
 应该看到SSL握手成功，并且API返回了响应。
@@ -141,4 +141,4 @@ curl -v https://canghecode.com:6803/api/bazi/calculate
 
 3. **HTTPS连接被拒绝**:
    - 检查防火墙设置
-   - 验证SSL配置: `openssl s_client -connect canghecode.com:6803` 
+   - 验证SSL配置: `openssl s_client -connect your-domain.com:YOUR_API_PORT` 

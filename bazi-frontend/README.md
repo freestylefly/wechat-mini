@@ -14,7 +14,7 @@
 
 项目支持两个环境：
 - 开发环境（本地）：`http://localhost:8080/api`
-- 生产环境（线上）：`https://bazi.canghecode.com/api`
+- 生产环境（线上）：`https://api.your-domain.com/api`
 
 ### 切换环境
 
@@ -30,7 +30,7 @@
 2. 进入"开发管理" > "开发设置" > "服务器域名"
 3. 在"request合法域名"中添加：
    - 开发环境：`localhost:8080`（仅在开发工具的本地模式下有效）
-   - 生产环境：`bazi.canghecode.com`
+   - 生产环境：`api.your-domain.com`
 
 **注意：** 
 - 微信小程序正式环境只支持HTTPS请求，已配置为使用HTTPS
