@@ -16,6 +16,20 @@
 - 开发环境（本地）：`http://localhost:8080/api`
 - 生产环境（线上）：`https://api.your-domain.com/api`
 
+### 微信小程序配置
+
+在使用前，需要在 `project.config.json` 文件中配置你自己的微信小程序 appid：
+
+```json
+{
+  "appid": "YOUR_WECHAT_APPID",
+  "compileType": "miniprogram",
+  ...
+}
+```
+
+你可以在[微信公众平台](https://mp.weixin.qq.com/)注册并获取 appid。
+
 ### 切换环境
 
 在 `config/api.js` 文件中，修改 `CURRENT_ENV` 变量：

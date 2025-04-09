@@ -43,7 +43,16 @@
 
 2. 使用微信开发者工具打开 `bazi-frontend` 目录
 
-3. 配置API地址（`bazi-frontend/config/api.js`）：
+3. 配置小程序信息
+   - 修改 `project.config.json` 中的 appid:
+     ```json
+     {
+       "appid": "YOUR_WECHAT_APPID"
+     }
+     ```
+   - 在微信公众平台注册并获取 appid: [微信公众平台](https://mp.weixin.qq.com/)
+
+4. 配置API地址（`bazi-frontend/config/api.js`）：
    ```javascript
    // 开发环境
    [ENV.DEV]: 'http://localhost:8080/api',
@@ -51,7 +60,7 @@
    [ENV.PROD]: 'https://api.your-domain.com/api',
    ```
 
-4. 编译预览小程序
+5. 编译预览小程序
 
 ### 后端部署
 
