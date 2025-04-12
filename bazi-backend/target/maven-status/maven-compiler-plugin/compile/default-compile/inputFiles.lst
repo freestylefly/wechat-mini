@@ -7,6 +7,7 @@
 /Users/canghe/responsibility/canghe/wechat-mini/bazi-backend/src/main/java/com/bazi/config/AIServiceConfig.java
 /Users/canghe/responsibility/canghe/wechat-mini/bazi-backend/src/main/java/com/bazi/util/DeepSeekApiException.java
 /Users/canghe/responsibility/canghe/wechat-mini/bazi-backend/src/main/java/com/bazi/model/response/BaziCalculationResult.java
+/Users/canghe/responsibility/canghe/wechat-mini/bazi-backend/src/main/java/com/bazi/config/AppConfig.java
 /Users/canghe/responsibility/canghe/wechat-mini/bazi-backend/src/main/java/com/bazi/model/request/DeepSeekMessage.java
 /Users/canghe/responsibility/canghe/wechat-mini/bazi-backend/src/main/java/com/bazi/service/impl/MockServiceImpl.java
 /Users/canghe/responsibility/canghe/wechat-mini/bazi-backend/src/main/java/com/bazi/service/impl/DeepSeekServiceImpl.java

@@ -1,0 +1,30 @@
+# 开发环境配置
+server:
+  port: 8080  # 开发环境使用标准端口
+
+# DeepSeek API配置
+deepseek:
+  api:
+    url: https://api.deepseek.com/v1/chat/completions
+    key: YOUR_DEEPSEEK_API_KEY_FOR_DEV  # 开发环境可使用测试密钥
+
+# 火山引擎API配置
+volcengine:
+  api:
+    key: YOUR_VOLCENGINE_API_KEY_FOR_DEV  # 开发环境可使用测试密钥
+    timeout: 60  # 开发环境超时时间更长，方便调试
+    model: doubao-lite-128k-240828
+    max-connections: 5
+    connection-ttl: 60
+    prompt: ${analysis.prompt}  # 引用主配置中的提示词
+
+# 开发环境调试配置
+debug: true
+
+# 开发环境日志配置
+logging:
+  level:
+    root: INFO
+    com.bazi: DEBUG  # 开发环境更详细的日志
+    org.springframework.web: DEBUG
+    org.hibernate.SQL: DEBUG 

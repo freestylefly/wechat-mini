@@ -1,0 +1,32 @@
+# 生产环境配置
+server:
+  port: 6803  # 可根据生产需要调整端口
+
+# DeepSeek API配置
+deepseek:
+  api:
+    url: https://api.deepseek.com/v1/chat/completions
+    key: ${DEEPSEEK_API_KEY}  # 生产环境必须配置真实密钥
+
+# 火山引擎API配置
+volcengine:
+  api:
+    key: ${VOLCENGINE_API_KEY}  # 生产环境必须配置真实密钥
+    timeout: 30
+    model: doubao-lite-128k-240828
+    max-connections: 10  # 生产环境增加连接数
+    connection-ttl: 60
+    prompt: ${analysis.prompt}  # 引用主配置中的提示词
+
+# 生产环境日志配置
+logging:
+  level:
+    root: INFO
+    com.bazi: INFO
+    org.springframework.web: WARN
+  file:
+    name: /var/log/bazi-backend/app.log  # 生产环境日志路径
+  logback:
+    rollingpolicy:
+      max-file-size: 10MB
+      max-history: 30 

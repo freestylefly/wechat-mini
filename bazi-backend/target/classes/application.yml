@@ -6,6 +6,8 @@ server:
 spring:
   application:
     name: bazi-backend
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:local}  # 默认使用生产环境，可通过环境变量覆盖
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
@@ -24,7 +26,7 @@ logging:
 deepseek:
   api:
     url: ${DEEPSEEK_API_URL:https://api.deepseek.com/v1/chat/completions}
-    key: ${DEEPSEEK_API_KEY:sk-69fdd397a6a24780a9fd9d1708e6b0c0}
+    key: ${DEEPSEEK_API_KEY:YOUR_DEEPSEEK_API_KEY}
 
 # Swagger配置
 springdoc:
@@ -37,32 +39,35 @@ springdoc:
 
 # 跨域配置
 cors:
-  allowed-origins: ${CORS_ALLOWED_ORIGINS:*}
+  allowed-origins: "*"
   allowed-methods: GET,POST,PUT,DELETE,OPTIONS
   allowed-headers: Origin,X-Requested-With,Content-Type,Accept,Authorization,Referer,User-Agent
   max-age: 3600
 
 ai:
-  provider: volcengine  # 改为火山引擎
-  use-mock-on-failure: true  # 在API调用失败时使用模拟数据
+  provider: volcengine  # 默认使用火山引擎
+  use-mock-on-failure: false  # 在API调用失败时使用模拟数据
 
 # 火山引擎API配置
 volcengine:
   api:
-    key: ${VOLCENGINE_API_KEY:e52c3178-232f-431c-a651-97e4737e8676}  # 使用示例中的API Key或环境变量
+    key: ${VOLCENGINE_API_KEY:YOUR_VOLCENGINE_API_KEY}
     timeout: 30
     model: doubao-lite-128k-240828
     max-connections: 5
     connection-ttl: 60
-    prompt: |
-      你是一名专业的八字命理分析大师，擅长四柱八字、紫微斗数等传统命理学。
-      请根据用户提供的公历生日和时辰，计算出准确的八字信息，并以JSON格式返回结果。
-      必须包含以下字段：
-      1. gregorianDate: 公历日期，原样返回用户输入的日期
-      2. lunarDate: 农历日期，格式为"正月初一"
-      3. eightCharacters: 八字，格式为"年柱-月柱-日柱-时柱"，如"甲子-乙丑-丙寅-丁卯"
-      4. fiveElements: 五行属性，格式为"年柱五行-月柱五行-日柱五行-时柱五行"，如"木水-木土-火木-火木"
-      5. missingElements: 五行缺失，如"缺金缺水"，如果没有缺失则返回"五行俱全"
-      6. zodiac: 生肖，如"鼠"、"牛"等
 
-      只返回JSON格式的结果，不要有任何前缀或后缀说明。 
+# 生辰分析提示词配置（共享配置）
+analysis:
+  prompt: |
+    你是一名专业的生辰数据分析专家，熟悉传统历法和时间计算。
+    请根据用户提供的公历生日和时辰，计算出相关的历法信息，并以JSON格式返回结果。
+    必须包含以下字段：
+    1. gregorianDate: 公历日期，原样返回用户输入的日期
+    2. lunarDate: 农历日期，格式为"正月初一"
+    3. eightCharacters: 生辰干支，格式为"年柱-月柱-日柱-时柱"，如"甲子-乙丑-丙寅-丁卯"
+    4. fiveElements: 五行属性，格式为"年柱五行-月柱五行-日柱五行-时柱五行"，如"木水-木土-火木-火木"
+    5. missingElements: 五行缺失，如"缺金缺水"，如果没有缺失则返回"五行俱全"
+    6. zodiac: 生肖，如"鼠"、"牛"等
+
+    只返回JSON格式的结果，不要有任何前缀或后缀说明。 

@@ -16,6 +16,34 @@
 - 开发环境（本地）：`http://localhost:8080/api`
 - 生产环境（线上）：`https://api.your-domain.com/api`
 
+### 环境配置方法
+
+我们使用`.env`文件和构建脚本来管理环境配置：
+
+1. **首次配置步骤**
+   - 复制模板文件：`cp .env.template .env`
+   - 编辑`.env`文件，设置您的配置项：
+     ```
+     # 环境设置 (development 或 production)
+     CURRENT_ENV=development  # 改为production使用生产环境
+     
+     # API地址配置
+     DEV_API_URL=http://localhost:8080/api
+     PROD_API_URL=https://your-actual-domain.com/api
+     ```
+   - 安装依赖：`npm install`，如果国内下载太慢，可以使用：`npm install --registry=https://registry.npmmirror.com`
+   - 应用配置：`npm run config`
+
+2. **切换环境**
+   - 修改`.env`文件中的`CURRENT_ENV`值：
+     - `CURRENT_ENV=development` 使用本地开发环境
+     - `CURRENT_ENV=production` 使用生产环境
+   - 重新应用配置：`npm run config`
+
+3. **注意事项**
+   - 每次修改`.env`后必须运行`npm run config`使配置生效
+   - `.env`文件不会被提交到代码仓库，保证敏感信息安全
+
 ### 微信小程序配置
 
 在使用前，需要在 `project.config.json` 文件中配置你自己的微信小程序 appid：
@@ -29,12 +57,6 @@
 ```
 
 你可以在[微信公众平台](https://mp.weixin.qq.com/)注册并获取 appid。
-
-### 切换环境
-
-在 `config/api.js` 文件中，修改 `CURRENT_ENV` 变量：
-- 本地开发：`const CURRENT_ENV = ENV.DEV;`
-- 线上环境：`const CURRENT_ENV = ENV.PROD;`
 
 ## 安全域名配置
 
@@ -54,29 +76,31 @@
 
 ```
 bazi-frontend/
-├── config/             # 配置文件
-│   └── api.js          # API接口配置
-├── pages/              # 页面文件
-│   ├── index/          # 首页
-│   ├── input/          # 信息输入页
-│   └── result/         # 结果展示页
-├── static/             # 静态资源
-│   └── images/         # 图片资源
-├── utils/              # 工具函数
-│   ├── baziService.js  # 八字服务
-│   └── request.js      # 网络请求封装
-├── app.js              # 小程序入口文件
-├── app.json            # 小程序配置文件
-├── app.wxss            # 全局样式
-└── sitemap.json        # 微信索引配置
+├── .env               # 环境配置文件（本地开发使用，不提交）
+├── .env.template      # 环境配置模板
+├── config/            # 配置文件
+│   ├── api.js         # API接口配置
+│   └── scripts/       # 脚本目录
+│       └── env-config.js  # 环境配置处理脚本
+├── pages/             # 页面文件
+│   ├── index/         # 首页
+│   ├── input/         # 信息输入页
+│   └── result/        # 结果展示页
+├── static/            # 静态资源
+├── utils/             # 工具函数
+├── package.json       # 项目配置
+├── app.js             # 小程序入口文件
+└── app.json           # 小程序配置文件
 ```
 
 ## 开发和运行
 
-1. 安装微信开发者工具
-2. 导入项目目录
-3. 确保后端服务已启动（默认地址：http://localhost:8080/api）
-4. 在开发者工具中编译预览
+1. 安装Node.js环境（用于配置管理）
+2. 进入项目目录，安装依赖：`npm install`
+3. 创建并配置`.env`文件
+4. 运行配置脚本：`npm run config`
+5. 使用微信开发者工具导入项目
+6. 确保后端服务已启动
 
 ## 页面说明
 

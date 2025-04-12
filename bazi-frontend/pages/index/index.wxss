@@ -33,4 +33,17 @@
   color: #333;
   margin-bottom: 160rpx;
   text-shadow: 0 0 10rpx rgba(255, 255, 255, 0.8);
-} 
+}
+
+.action-btn {
+  background: #3CB371; /* 恢复绿色按钮 */
+  color: #fff;
+  padding: 10px 20px; /* 减小内边距 */
+  border-radius: 40px; /* 稍微减小圆角 */
+  font-size: 15px; /* 减小字体大小 */
+  margin-top: 60px;
+  box-shadow: 0 4px 8px rgba(60, 179, 113, 0.3); /* 稍微减小阴影 */
+  letter-spacing: 1px; /* 减小字间距 */
+  width: 180rpx; /* 设置固定宽度 */
+  text-align: center; /* 文字居中 */
+}

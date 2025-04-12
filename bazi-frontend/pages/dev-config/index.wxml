@@ -1,0 +1,59 @@
+<view class="container">
+  <view class="page-header">
+    <text class="title">开发环境配置</text>
+    <text class="subtitle">本页面仅用于本地开发调试</text>
+  </view>
+
+  <view class="form-container">
+    <view class="form-item">
+      <text class="label">当前环境</text>
+      <radio-group class="radio-group" bindchange="onEnvChange">
+        <label class="radio">
+          <radio value="development" checked="{{currentEnv === 'development'}}" />开发环境
+        </label>
+        <label class="radio">
+          <radio value="production" checked="{{currentEnv === 'production'}}" />生产环境
+        </label>
+      </radio-group>
+    </view>
+
+    <view class="form-item">
+      <text class="label">开发环境API地址</text>
+      <input class="input" value="{{devApiUrl}}" bindinput="onDevApiInput" placeholder="例如: http://localhost:8080/api" />
+    </view>
+
+    <view class="form-item">
+      <text class="label">生产环境API地址</text>
+      <input class="input" value="{{prodApiUrl}}" bindinput="onProdApiInput" placeholder="例如: https://your-domain.com/api" />
+    </view>
+
+    <view class="form-item">
+      <text class="label">微信小程序AppID</text>
+      <input class="input" value="{{appId}}" bindinput="onAppIdInput" placeholder="开发环境可不填" />
+      <text class="note">注: 仅供参考，实际appid由project.config.json决定</text>
+    </view>
+
+    <view class="form-item">
+      <text class="label">当前环境信息</text>
+      <view class="info-box">
+        <text>当前应用环境: {{currentEnv === 'development' ? '开发环境' : '生产环境'}}</text>
+        <text>当前API地址: {{currentEnv === 'development' ? devApiUrl : prodApiUrl}}</text>
+        <text class="wx-env">{{wxEnvInfo}}</text>
+      </view>
+    </view>
+
+    <view class="button-group">
+      <button class="btn save" bindtap="saveConfig">保存配置</button>
+      <button class="btn reset" bindtap="resetConfig">重置配置</button>
+    </view>
+  </view>
+
+  <view class="success-toast" wx:if="{{showSuccess}}">
+    <text>{{successMsg}}</text>
+  </view>
+
+  <view class="security-note">
+    <text class="note-title">安全提示:</text>
+    <text class="note-content">所有配置仅存储在本地，不会上传到云端，保证您的敏感信息安全。</text>
+  </view>
+</view> 

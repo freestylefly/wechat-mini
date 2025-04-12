@@ -11,7 +11,18 @@ Thumbs.db
 # 依赖目录
 node_modules/
 vendor/
+
+# 环境变量和敏感配置
 .env
+*.env
+.env.*
+!.env.template
+local-config/
+dev-config.json
+
+# Spring Boot本地配置
+**/application-local.yml
+**/application-local.properties
 
 # 构建产物
 dist/

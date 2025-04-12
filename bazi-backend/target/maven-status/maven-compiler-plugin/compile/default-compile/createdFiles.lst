@@ -11,6 +11,7 @@ com/bazi/model/deepseek/DeepSeekRequest$Message.class
 com/bazi/service/impl/VolcengineServiceImpl.class
 com/bazi/config/OkHttpConfig.class
 com/bazi/config/SwaggerConfig.class
+com/bazi/config/AppConfig.class
 com/bazi/model/response/DeepSeekResponse.class
 com/bazi/model/request/DeepSeekRequest$DeepSeekRequestBuilder.class
 com/bazi/config/GlobalExceptionHandler.class

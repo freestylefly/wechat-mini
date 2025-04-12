@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  bazi-backend:
+    build: .
+    container_name: bazi-backend
+    restart: always
+    ports:
+      - "6803:6803"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - DEEPSEEK_API_KEY=${DEEPSEEK_API_KEY}
+      - VOLCENGINE_API_KEY=${VOLCENGINE_API_KEY}
+      - CORS_ALLOWED_ORIGINS=*
+    volumes:
+      - ./logs:/var/log/bazi-backend 

@@ -1,0 +1,14 @@
+{
+  "name": "bazi-frontend",
+  "version": "1.0.0",
+  "description": "生辰分析小程序前端",
+  "main": "app.js",
+  "scripts": {
+    "config": "node config/scripts/env-config.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "dotenv": "^16.3.1"
+  }
+} 
